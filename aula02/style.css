@@ -1,0 +1,20 @@
+p{
+    color:blue;
+    font-size: 18pt;
+}
+
+#p1{
+    color:yellow;
+}
+
+.tag_verde{
+    color: green;
+}
+
+div p{
+    color: coral
+}
+
+.tag_verde:hover{
+    background-color: black;
+}
