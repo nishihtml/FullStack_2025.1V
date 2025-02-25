@@ -1,0 +1,39 @@
+body{background-color: lightgray;}
+
+.caixa1{border: solid darkblue;
+        background-color: bisque;}
+
+.inline{display: inline}
+
+#menu{border: solid lightskyblue;
+    background-color: lightskyblue;}
+
+.introducao{font-size: 20px;
+            color: indigo;}
+
+.livros{display: inline;
+       }
+
+.titulo{font-size: 30px;
+        color: black;}
+
+.principal{font-size: 60px;
+          color: darkgreen;}
+
+.amarelo{border: solid yellow;
+        background-color: yellow;
+        width: 500px;
+        height: 250px;
+        position: relative;
+        left: 41%}
+
+table{border: 5px dashed red;
+    position: relative;
+    left: 41%}
+
+tr, td , th{border: 1px solid red;}
+
+html{display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;}
