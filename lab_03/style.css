@@ -61,8 +61,7 @@ body{background-color: lightgray;}
         width: 600px;
         text-align: left;}
 
-table{  top: -30px;
-        margin-left: auto;
+table{  margin-left: auto;
         margin-right: auto;
         border: 2px dashed red;
         position: relative;}
