@@ -22,3 +22,8 @@
 
 .gif3{position: relative;
     text-align: center;}
+
+.middle{flex-direction: row;
+    justify-items: center;}
+
+.middle div{flex-direction: row;}
