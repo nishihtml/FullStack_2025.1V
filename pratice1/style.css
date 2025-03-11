@@ -27,3 +27,5 @@
     justify-items: center;}
 
 .middle div{flex-direction: row;}
+
+.bottom{flex-wrap: wrap;}
