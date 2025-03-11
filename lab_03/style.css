@@ -24,11 +24,11 @@ body{background-color: lightgray;}
 
 .html{position: absolute;
         left: 20px;
-        bottom: -1450px;}
+        bottom: -1460px;}
 
 .css{position: absolute;
         right: 20px;
-        bottom: -1450px}
+        bottom: -1460px}
 
 .inline{border: solid lightskyblue;
         background-color: lightskyblue;

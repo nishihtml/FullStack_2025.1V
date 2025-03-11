@@ -1,0 +1,25 @@
+.top{flex-direction: row;
+    position: relative;
+    justify-items: center;}
+
+#box{background-color: blueviolet;
+    padding: 10px;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    flex-wrap: wrap;}
+
+#box div{color:white}
+
+#box2{font-size: larger;}
+
+.link{color: gray;
+    text-align: center;}
+
+.line{background-color: gray;
+    height: 2px;
+    width: auto}
+
+.gif3{justify-self: center;
+    position: relative;
+    justify-content: space-between;}
