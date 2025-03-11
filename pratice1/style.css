@@ -1,6 +1,7 @@
-.top{flex-direction: row;
-    position: relative;
+.top{position: relative;
     justify-items: center;}
+
+.top div{flex-direction: row;}
 
 #box{background-color: blueviolet;
     padding: 10px;
