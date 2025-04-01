@@ -1,0 +1,28 @@
+body {
+    background-color: rgb(254, 255, 211);
+}
+
+html{display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;}
+
+#reply{
+    font-size: 25px;
+}
+
+#dica{
+    color: rgb(145, 85, 85);
+}
+
+#win{
+    color: rgb(32, 124, 86);
+}
+
+#link{
+    color: rgb(134, 88, 155);
+}
+
+h1{
+    color: rgb(255, 0, 76);
+}
