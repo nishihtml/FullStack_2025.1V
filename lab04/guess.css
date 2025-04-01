@@ -7,6 +7,18 @@ html{display: flex;
     align-items: center;
     text-align: center;}
 
+#reply{
+    font-size: 25px;
+}
+
+#dica{
+    color: rgb(104, 148, 0);
+}
+
+#link{
+    color: rgb(141, 114, 151);
+}
+
 h1{
-    color: rgb(255, 0, 64);
+    color: rgb(255, 0, 76);
 }
