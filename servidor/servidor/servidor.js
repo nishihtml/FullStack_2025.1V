@@ -98,3 +98,9 @@ app.get("/login", function(requisicao, resposta){
         }
     })
 })
+
+app.post('/atualizar_senha'), function(req, resp){
+    let login = req.body.login;
+    let senha = req.body.senha;
+    let novasenha = req.body.novasenha;
+}
