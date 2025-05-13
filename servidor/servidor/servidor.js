@@ -25,6 +25,8 @@ app.get("/cadastrar", function(requisicao, resposta){
     let login = requisicao.query.login;
     let senha = requisicao.query.senha;
     let nasc = requisicao.query.nascimento;
+
+    console.log(nome, login, senha, nasc)
 })
 
 app.post("/cadastrar", function(requisicao, resposta){
@@ -33,17 +35,14 @@ app.post("/cadastrar", function(requisicao, resposta){
     let senha = requisicao.body.senha;
     let nasc = requisicao.body.nascimento;
     console.log(nome, login, senha, nasc);
-    resposta.render("resposta",{nome, login, senha, nasc});
 
-    var data = {db_nome: nome, db_login: login, db_senha: senha, db_nasc: nasc}
+    var data = { db_nome: nome, db_login: login, db_senha: senha, db_nasc: nasc };
 
     usuarios.insertOne(data, function(err){
-        console.log(err)
         if(err){
-            resposta.render("resposta",{status: "Erro", nome, login, senha, nasc})
-        }
-        else{
-            resposta.render("resposta",{status: "Sucesso", nome, login, senha, nasc})
+            resposta.render("resposta",{status: "Erro" ,nome, login, senha, nasc});
+        }else{
+            resposta.render("resposta",{status: "Sucesso", nome, login, senha, nasc});
         }
     })
 })
@@ -63,40 +62,46 @@ usuarios.find(data).toArray(function(err, items) {
     });
 });
 
-app.post("/login", function(requisicao, resposta){
-    let nome = requisicao.query.nome;
-    let login = requisicao.query.login;
-    let senha = requisicao.query.senha;
-    let nasc = requisicao.query.nascimento;
-    var data = {db_nome: nome, db_login: login, db_senha: senha, db_nasc: nasc}
+app.post('/logar', function(requisicao, resposta){
+    let login = requisicao.body.login;
+    let senha = requisicao.body.senha;
+    console.log(login, senha);
+
+    var data = {db_login: login, db_senha: senha}
+
     usuarios.find(data).toArray(function(err, items){
         console.log(items)
         if(items.length == 0){
-            resposta.render("reposta",{status: "Não encontrado"})
+            resposta.render("resposta_login",{status: "usuario/senha não encontrado"});
         }else if(err){
-            resposta.render("reposta",{status: "Erro"})
+            resposta.render("resposta_login",{status: "erro ao logar"});
         }else{
-            resposta.render("reposta",{status: "Sucesso"})
+            resposta.render("resposta_login",{status: "usuario "+login+" logado"});
         }
     })
+
 })
 
-app.get("/login", function(requisicao, resposta){
-    let nome = requisicao.query.nome;
-    let login = requisicao.query.login;
-    let senha = requisicao.query.senha;
-    let nasc = requisicao.query.nascimento;
-    var data = {db_nome: nome, db_login: login, db_senha: senha, db_nasc: nasc}
-    usuarios.find(data).toArray(function(err, items){
-        console.log(items)
-        if(items.length == 0){
-            resposta.render("reposta",{status: "Não encontrado"})
-        }else if(err){
-            resposta.render("reposta",{status: "Erro"})
-        }else{
-            resposta.render("reposta",{status: "Sucesso"})
-        }
+app.post('/atualizar_senha', function(requisicao, resposta){
+    let login = requisicao.body.login;
+    let senha = requisicao.body.senha;
+    let novasenha = requisicao.body.novasenha;
+
+    let data = { db_login: login, db_senha: senha }
+    let new_data = { $set: {db_senha: novasenha}}
+
+    usuarios.updateOne(data, new_data, function(err, result){
+        console.log(result);
+    
+        if (result.modifiedCount == 0) {
+            resposta.render('resposta_login', {status: "Usuário/senha não encontrado!"})
+        }else if (err) {
+            resposta.render('resposta_login', {status: "Erro ao atualizar usuário!"})
+        }else {
+            resposta.render('resposta_login', {status: "Usuário atualizado com sucesso!"})        
+        };
     })
+
 })
 
 app.post('/atualizar_senha'), function(req, resp){
